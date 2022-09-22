@@ -9,6 +9,7 @@ class ProductImagAdmin(admin.TabularInline,):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'flag', 'price']
     inlines = [ProductImagAdmin]
+    prepopulated_fields = {"slug": ("name",)}
 
 
 admin.site.register(Product,ProductAdmin)
